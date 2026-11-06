@@ -11,6 +11,19 @@ permissions:
   contents: write
 
 jobs:
+  handoff:
+    name: Gemini handoff bundle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build brief + source bundle
+        run: node scripts/make-handoff.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shardfall-gemini-handoff
+          path: dist/Shardfall_Gemini_Handoff.md
+          if-no-files-found: error
+
   windows:
     name: Windows (.exe)
     runs-on: windows-latest

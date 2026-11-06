@@ -12,7 +12,8 @@
     "start": "electron .",
     "dist:win": "electron-builder --win nsis portable --x64",
     "cap:sync": "cap sync android",
-    "android:debug": "cap sync android && cd android && ./gradlew assembleDebug"
+    "android:debug": "cap sync android && cd android && ./gradlew assembleDebug",
+    "handoff": "node scripts/make-handoff.mjs"
   },
   "build": {
     "appId": "com.truckkun69.shardfall",
