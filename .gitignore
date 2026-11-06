@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Node / Electron
+node_modules/
+dist/

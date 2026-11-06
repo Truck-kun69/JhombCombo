@@ -1,0 +1,9 @@
+{
+  "appId": "com.truckkun69.shardfall",
+  "appName": "Shardfall Survivors",
+  "webDir": "web",
+  "android": {
+    "backgroundColor": "#0d1019",
+    "allowMixedContent": false
+  }
+}
