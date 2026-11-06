@@ -27,13 +27,13 @@
       "package.json"
     ],
     "win": {
-      "icon": "resources/icon.png",
-      "artifactName": "ShardfallSurvivors-${version}-${arch}-${target}.${ext}"
+      "icon": "resources/icon.png"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "createDesktopShortcut": true
+      "createDesktopShortcut": true,
+      "artifactName": "ShardfallSurvivors-${version}-setup.${ext}"
     },
     "portable": {
       "artifactName": "ShardfallSurvivors-${version}-portable.exe"

@@ -14,7 +14,7 @@ scripts/        vendor.mjs (copies three.js/fonts into web/vendor), make-icons.j
 
 Every push runs **GitHub Actions → "Build apps"**. Open the run and download the artifacts:
 
-- `shardfall-windows` contains `ShardfallSurvivors-<ver>-x64-nsis.exe` (installer) and `ShardfallSurvivors-<ver>-portable.exe` (no install needed).
+- `shardfall-windows` contains `ShardfallSurvivors-<ver>-setup.exe` (installer) and `ShardfallSurvivors-<ver>-portable.exe` (no install needed).
 - `shardfall-android` contains `ShardfallSurvivors-debug.apk`. Copy it to your phone and install it. You'll need to allow "Install unknown apps" for your file manager or browser.
 
 Pushing a tag such as `v1.0.0` also attaches these files to a GitHub Release.
