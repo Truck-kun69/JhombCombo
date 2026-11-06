@@ -7,7 +7,9 @@ web/            the game (index.html) + bundled three.js r128 and fonts — runs
 electron/       Windows desktop shell (Electron)
 android/        Android project (Capacitor)
 resources/      app icon source
-scripts/        vendor.mjs (copies three.js/fonts into web/vendor), make-icons.js (renders icons/splash)
+scripts/        vendor.mjs (copies three.js/fonts into web/vendor), make-icons.js (renders icons/splash),
+                make-handoff.mjs (builds the Gemini handoff bundle)
+docs/           GEMINI_HANDOFF.md (architecture brief for Gemini)
 ```
 
 ## Download the builds
@@ -16,6 +18,8 @@ Every push runs **GitHub Actions → "Build apps"**. Open the run and download t
 
 - `shardfall-windows` contains `ShardfallSurvivors-<ver>-setup.exe` (installer) and `ShardfallSurvivors-<ver>-portable.exe` (no install needed).
 - `shardfall-android` contains `ShardfallSurvivors-debug.apk`. Copy it to your phone and install it. You'll need to allow "Install unknown apps" for your file manager or browser.
+
+The `shardfall-gemini-handoff` artifact is a single Markdown file you can give to Gemini, our co-developer and technical architect. It holds the brief from [`docs/GEMINI_HANDOFF.md`](docs/GEMINI_HANDOFF.md) followed by the current source. To build it locally, run `npm run handoff`, which writes `dist/Shardfall_Gemini_Handoff.md`.
 
 Pushing a tag such as `v1.0.0` also attaches these files to a GitHub Release.
 
