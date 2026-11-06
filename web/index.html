@@ -1,11 +1,13 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#0d1019">
 <title>Shardfall Survivors</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Bungee&display=swap">
+<link rel="stylesheet" href="vendor/fonts.css">
+<script src="vendor/three.min.js"></script>
+<style>html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html,body{margin:0;padding:0;background:#0d1019;overscroll-behavior:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}</style>
 <style>
 /* Layout: full-bleed canvas world with a thumb-reach UI on top. Menus are single-column sheets, the HUD hugs the top edge, the joystick floats wherever the thumb lands. */
 :root {
@@ -161,6 +163,8 @@ h2 { font-family: var(--f-display); font-weight: 400; font-size: 26px; margin: 0
 .actions { display: flex; flex-direction: column; gap: 10px; }
 @media (prefers-reduced-motion: reduce) { #hint { transition: none; } }
 </style>
+</head>
+<body>
 
 <canvas id="cv3d" aria-hidden="true"></canvas>
 <canvas id="cv" aria-label="Game field"></canvas>
@@ -5861,6 +5865,8 @@ window.addEventListener('keydown', function (e) {
 window.addEventListener('keyup', function (e) { var k = KEYMAP[e.code]; if (k) keys[k] = false; });
 window.addEventListener('blur', function () { keys.left = keys.right = keys.up = keys.down = false; });
 document.addEventListener('visibilitychange', function () { if (document.hidden) pauseGame(); });
+// Read-only hook so the Android shell's back button can pause instead of exiting mid-run.
+window.__shardfallState = function () { return state; };
 window.addEventListener('app-pause', pauseGame);                                // the desktop app sends this when its window is minimized
 
 $('ui').addEventListener('click', function (ev) {
@@ -5897,4 +5903,5 @@ requestAnimationFrame(frame);
 </script>
 
 
-</body></html>
+</body>
+</html>

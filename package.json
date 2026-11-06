@@ -1,0 +1,54 @@
+{
+  "name": "shardfall-survivors",
+  "version": "1.0.0",
+  "description": "Shardfall Survivors - a 3D survivors-style arena game",
+  "author": "Truck-kun69",
+  "license": "EPL-2.0",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "vendor": "node scripts/vendor.mjs",
+    "postinstall": "node scripts/vendor.mjs",
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis portable --x64",
+    "cap:sync": "cap sync android",
+    "android:debug": "cap sync android && cd android && ./gradlew assembleDebug"
+  },
+  "build": {
+    "appId": "com.truckkun69.shardfall",
+    "productName": "Shardfall Survivors",
+    "directories": {
+      "output": "dist",
+      "buildResources": "resources"
+    },
+    "files": [
+      "electron/**",
+      "web/**",
+      "package.json"
+    ],
+    "win": {
+      "icon": "resources/icon.png",
+      "artifactName": "ShardfallSurvivors-${version}-${arch}-${target}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "portable": {
+      "artifactName": "ShardfallSurvivors-${version}-portable.exe"
+    }
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/core": "^8.6.0",
+    "@fontsource/barlow-condensed": "^5.3.0",
+    "@fontsource/bungee": "^5.3.0",
+    "three": "^0.128.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.0",
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0"
+  }
+}
